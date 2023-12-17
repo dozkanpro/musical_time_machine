@@ -37,3 +37,6 @@ This project utilizes Flask for the web framework, Beautiful Soup for web scrapi
       ```
   
   - **Access the Application:** Open your web browser and navigate to http://localhost:5000 to access the application.
+
+## Contributing
+   
