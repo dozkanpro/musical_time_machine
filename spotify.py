@@ -37,7 +37,7 @@ class Spotify:
 
         # Create Playlist
         playlist = self.sp.user_playlist_create(user=user_id, name=f"{date} BILBOARD 100", public=False)
-        #print(playlist['external_urls']['spotify'])
+        print(playlist['external_urls']['spotify'])
         # Adding track into playlist
         self.sp.playlist_add_items(playlist_id=playlist["id"], items=song_uris)
         return playlist['external_urls']['spotify']
