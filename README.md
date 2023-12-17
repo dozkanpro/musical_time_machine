@@ -38,5 +38,12 @@ This project utilizes Flask for the web framework, Beautiful Soup for web scrapi
   
   - **Access the Application:** Open your web browser and navigate to http://localhost:5000 to access the application.
 
+## Screenshots
+ - Upload the file:    
+   <div align="center"><img src="top_color_1.png" alt="UI Screenshot"/></div>
+
+ - Analyze the file:    
+   <div align="center"><img src="top_color_2.png" alt="UI Screenshot"/></div>
+   
 ## Contributing
    Contributions are welcome! Please fork the repository and create a pull request with your changes.
