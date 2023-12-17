@@ -36,32 +36,14 @@ def home():
         soup = BeautifulSoup(response.text, "html.parser")
         song_names_spans = soup.select("li ul li h3")
         song_names = [song.getText().strip() for song in song_names_spans]
-
+        print(len(song_names))
         # Authenticate to Spotify
         my_spotify = Spotify()
 
         # Create Spotify playlist with 100 top song list
         playlist_url = my_spotify.create_list(song_names, songs_date)
 
-        search = False
-        q = request.args.get('q')
-        if q:
-            search = True
-
-        page = request.args.get(get_page_parameter(), type=int, default=1)
-
-        pagination = Pagination(page=page, total=len(song_names), search=search, css_framework='bootstrap5')
-
-        page = request.args.get('page', type=int, default=1)
-        print(page)
-        per_page = 10  # Number of items per page
-        offset = (page - 1) * per_page
-        all_songs = song_names[offset:offset + per_page]
-
-        # Create a Pagination object
-        pagination = Pagination(page=page, per_page=per_page, total=len(song_names), css_framework='bootstrap5')
-
-        return render_template("index.html", song_names=song_names, form=form, url=playlist_url, pagination=pagination)
+        return render_template("index.html", song_names=song_names, form=form, url=playlist_url)
     return render_template("index.html", form=form)
 
 
