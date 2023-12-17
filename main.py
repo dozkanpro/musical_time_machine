@@ -9,7 +9,6 @@ import requests
 from spotify import Spotify
 import os
 
-
 URL = "https://www.billboard.com/charts/hot-100/"
 
 # Initiate Flask App
@@ -52,15 +51,15 @@ def home():
         page = request.args.get(get_page_parameter(), type=int, default=1)
 
         pagination = Pagination(page=page, total=len(song_names), search=search, css_framework='bootstrap5')
-        # for pagination
-        # page = request.args.get('page', type=int, default=1)
-        # print(page)
-        # per_page = 10  # Number of items per page
-        # offset = (page - 1) * per_page
-        # all_songs = song_names[offset:offset + per_page]
-        #
-        # # Create a Pagination object
-        # pagination = Pagination(page=page, per_page=per_page, total=len(song_names), css_framework='bootstrap5')
+
+        page = request.args.get('page', type=int, default=1)
+        print(page)
+        per_page = 10  # Number of items per page
+        offset = (page - 1) * per_page
+        all_songs = song_names[offset:offset + per_page]
+
+        # Create a Pagination object
+        pagination = Pagination(page=page, per_page=per_page, total=len(song_names), css_framework='bootstrap5')
 
         return render_template("index.html", song_names=song_names, form=form, url=playlist_url, pagination=pagination)
     return render_template("index.html", form=form)
