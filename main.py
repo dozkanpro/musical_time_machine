@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from flask_bootstrap import Bootstrap5
-from flask_paginate import Pagination, get_page_parameter
 from wtforms import DateField, SubmitField
 from datetime import datetime
 from bs4 import BeautifulSoup
